@@ -21,6 +21,5 @@
     "webpack-cli": "^3.3.11"
   },
   "dependencies": {
-    "tabsy-css": "^1.0.0"
   }
 }
