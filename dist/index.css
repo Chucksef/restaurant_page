@@ -45,6 +45,11 @@ p {
     left: 0;
     width: 100%;
     height: 100%;
+}
+
+#background img {
+    width: 100%;
+    height: 100%;
     object-fit: cover;
 }
 
@@ -76,7 +81,7 @@ header {
 
 header::before, header::after {
     content: '';
-    width: 50%;
+    width: 100%;
     border-bottom: solid 1px #fff;
     position: absolute;
     top: 50%;
@@ -102,22 +107,54 @@ header span {
     height: 100%;
 }
 
-.bar {
-    margin: 0;
-    position: relative;
-    top: 50%;
-    left: 0;
-    border: none;
-    border-bottom: white 1px solid;
-    display: inline-block;
+nav {
+    position: absolute;
+    left: calc( 50% + calc( 11em * 1.7 ) );
+    top: 5.5em;
 }
 
-header ul {
+nav ul {
+    display: initial;
     text-align: center;
     margin: 0;
     padding: 0;
 }
 
+nav li {
+    font-size: 1.1em;
+    font-weight: 400;
+    display: inline-block;
+    margin-right: .5em;
+    list-style: none;
+    cursor: pointer;
+    transition: .2s;
+    color: rgba(255,255,255,.75);
+    padding: 5px 1.5em;
+    border: 1px solid white;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+}
+
+nav li:hover {
+    color: white
+}
+
+.selected {
+    transform: translateY( calc(-2em - 1px));
+    background: white;
+    color: black;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom: 0px
+}
+
+.selected:hover {
+    color: black
+}
 
 
 
