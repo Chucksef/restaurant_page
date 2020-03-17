@@ -9,33 +9,43 @@ function showPage(content) {
     target.appendChild(element);
 }
 
-function clearContent(lastElem) {
+function resetPage(clickedElem) {
     
+    // clear all tabs to only have class: 'tab'
     let tabs = document.querySelectorAll(".tab");
     tabs.forEach(function(tab){
         tab.className = "tab";
     })
-    
-    lastElem.className = "tab selected";
+
+    let relevantLI;
+    if( clickedElem.nodeName == "EM" ) {
+        relevantLI = clickedElem.parentNode;
+    } else {
+        relevantLI = clickedElem.nodeName == "LI" ? clickedElem : undefined;
+    }
+
+    relevantLI.className = "tab selected";
+
+    // actually clear content...
     let target = document.querySelector("#content");
     target.innerHTML = "";
 
 }
 
 document.querySelector("#home-tab").addEventListener('click', function(e){
-    clearContent(e.target);
+    resetPage(e.target);
     showPage(home());
     
 })
 
 document.querySelector("#menu-tab").addEventListener('click', function(e){
-    clearContent(e.target);
+    resetPage(e.target);
     showPage(menu());
 
 })
 
 document.querySelector("#locations-tab").addEventListener('click', function(e){
-    clearContent(e.target);
+    resetPage(e.target);
     showPage(locations());
 
 })

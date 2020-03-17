@@ -1,3 +1,44 @@
+/* ANIMATIONS */
+
+@keyframes wobbleUp {
+    from {
+        transform: scaleY(1);
+    }
+
+    60% {
+        transform: scaleY(-1);
+    }
+
+    80% {
+        transform: scaleY(-.95);
+    }
+  
+    to {
+        transform: scaleY(-1);
+    }
+}
+
+@keyframes wobbleDown {
+    from {
+        transform: scaleY(-1);
+    }
+
+    60% {
+        transform: scaleY(1);
+    }
+
+    75% {
+        transform: scaleY(.95);
+    }
+  
+    to {
+        transform: scaleY(1);
+    }
+}
+
+
+
+
 * {
     position: relative;
     color: white;
@@ -32,6 +73,15 @@ li, a {
 
 p {
     font-family: 'Open Sans', sans-serif;
+}
+
+body::-webkit-scrollbar { 
+    width: 0 !important 
+}
+
+body { 
+    overflow: -moz-scrollbars-none;
+    -ms-overflow-style: none;
 }
 
 
@@ -121,6 +171,8 @@ nav ul {
 }
 
 nav li {
+    animation: .7s 1 forwards wobbleDown;
+    animation-timing-function: cubic-bezier(.5,0,0,.71);
     font-size: 1.1em;
     font-weight: 400;
     display: inline-block;
@@ -131,10 +183,14 @@ nav li {
     color: rgba(255,255,255,.75);
     padding: 5px 1.5em;
     border: 1px solid white;
+    transform-origin: top center;
+    transform: scaleY(-1);
+
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
     border-top-left-radius: 0px;
     border-top-right-radius: 0px;
+    
 }
 
 nav li:hover {
@@ -142,14 +198,22 @@ nav li:hover {
 }
 
 .selected {
-    transform: translateY( calc(-2em - 1px));
+    animation: .3s 1 forwards wobbleUp;
+    animation-delay: 0s;
     background: white;
     color: black;
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    border-bottom: 0px
+}
+
+em {
+    display:inline-block;
+    text-emphasis: none;
+    -webkit-text-emphasis: none;
+    font-style: normal;
+}
+
+.selected em {
+    transform: scaleY(-1);
+    color: black;
 }
 
 .selected:hover {
