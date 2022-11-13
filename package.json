@@ -18,7 +18,7 @@
   "homepage": "https://github.com/Chucksef/restaurant_page#readme",
   "devDependencies": {
     "webpack": "^4.42.0",
-    "webpack-cli": "^3.3.11"
+    "webpack-cli": "^3.3.12"
   },
   "dependencies": {
   }
